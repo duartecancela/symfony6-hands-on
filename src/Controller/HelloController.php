@@ -2,13 +2,18 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\User;
+use App\Entity\Comment;
+use App\Entity\MicroPost;
 use App\Entity\UserProfile;
+use App\Repository\CommentRepository;
+use App\Repository\MicroPostRepository;
 use App\Repository\UserProfileRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Validator\Constraints\IsTrueValidator;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HelloController extends AbstractController
 {
@@ -19,8 +24,31 @@ class HelloController extends AbstractController
     ];
 
     #[Route('/', name: 'app_index')]
-    public function index(UserProfileRepository $profiles): Response
+    public function index(MicroPostRepository $posts, CommentRepository $comments): Response
     {
+        $post = $posts->find(7);
+        $comment = $post->getComments()[0];
+        $post->removeComment($comment);
+        $posts->add($post, true);
+        // dd($post);
+
+        // $post = new MicroPost();
+        // $post->setTitle('Hello');
+        // $post->setText('Hello');
+        // $post->setCreated(new DateTime());
+
+        // $post = $posts->find(7);
+
+        // $comment = new Comment();
+        // $comment->setText('Hello');
+        // $comment->setPost($post);
+        // $post->addComment($comment);
+        // $posts->add($post, true);
+        // $comments->add($comment, true);
+       
+
+    // dd($post)
+
         // $user = new User();
         // $user->setEmail('email@email.com');
         // $user->setPassword('12345678');
