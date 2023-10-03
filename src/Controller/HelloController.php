@@ -26,10 +26,10 @@ class HelloController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function index(MicroPostRepository $posts, CommentRepository $comments): Response
     {
-        $post = $posts->find(7);
-        $comment = $post->getComments()[0];
-        $post->removeComment($comment);
-        $posts->add($post, true);
+//        $post = $posts->find(7);
+//        $comment = $post->getComments()[0];
+//        $post->removeComment($comment);
+//        $posts->add($post, true);
         // dd($post);
 
         // $post = new MicroPost();
