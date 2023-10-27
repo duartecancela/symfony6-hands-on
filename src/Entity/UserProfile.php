@@ -24,7 +24,7 @@ class UserProfile
     private ?string $websiteUrl = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $twiterUsername = null;
+    private ?string $twitterUsername = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $company = null;
@@ -33,7 +33,7 @@ class UserProfile
     private ?string $location = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $dateOfbirth = null;
+    private ?\DateTimeInterface $dateOfBirth = null;
 
     #[ORM\OneToOne(inversedBy: 'userProfile', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
@@ -80,14 +80,14 @@ class UserProfile
         return $this;
     }
 
-    public function getTwiterUsername(): ?string
+    public function getTwitterUsername(): ?string
     {
-        return $this->twiterUsername;
+        return $this->twitterUsername;
     }
 
-    public function setTwiterUsername(?string $twiterUsername): static
+    public function setTwitterUsername(?string $twitterUsername): static
     {
-        $this->twiterUsername = $twiterUsername;
+        $this->twitterUsername = $twitterUsername;
 
         return $this;
     }
@@ -116,9 +116,9 @@ class UserProfile
         return $this;
     }
 
-    public function getDateOfbirth(): ?\DateTimeInterface
+    public function getDateOfBirth(): ?\DateTimeInterface
     {
-        return $this->dateOfbirth;
+        return $this->dateOfBirth;
     }
 
     public function setDateOfbirth(?\DateTimeInterface $dateOfbirth): static
